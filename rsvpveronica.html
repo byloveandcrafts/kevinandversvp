@@ -1,0 +1,1280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+  <title>Kevin & Veronica — RSVP</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@300;400&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Great+Vibes&family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=Raleway:wght@200;300;400;500&family=Tenor+Sans&family=Pinyon+Script&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      /* Spring pastel palette */
+      --blush:       #FAF0F3;
+      --white:       #FFFBFD;
+      --petal:       #F5E6EC;
+      --rose:        #D4A0B0;
+      --rose-deep:   #A8687C;
+      --rose-light:  #E8BEC9;
+      --rose-pale:   #F2DCE3;
+      --rose-ultra:  #FBF3F6;
+      --sage:        #B7C9A8;
+      --sage-deep:   #8AAD7A;
+      --sage-pale:   #E4EDE0;
+      --lavender:    #C8B8D8;
+      --lav-pale:    #EDE7F5;
+      --sky:         #B8D4E8;
+      --peach:       #F5C8A8;
+
+      --text:        #6B3A4A;
+      --text-soft:   #8F5C6A;
+      --dark:        #4A2A36;
+
+      --font-body:    'Raleway', sans-serif;
+      --font-display: 'Playfair Display', serif;
+      --font-script:  'Great Vibes', cursive;
+      --font-sub:     'EB Garamond', serif;
+      --font-tenor:   'Tenor Sans', sans-serif;
+      --font-cg:      'Cormorant Garamond', Georgia, serif;
+    }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; overflow-x: hidden; }
+    html, body { max-width: 100%; overflow-x: hidden; }
+
+    /* ── BACKGROUND ── */
+    body {
+      font-family: var(--font-body);
+      color: var(--text);
+      background: var(--blush);
+      background-image:
+        radial-gradient(ellipse at 15% 10%, rgba(212,160,176,0.12) 0%, transparent 55%),
+        radial-gradient(ellipse at 85% 90%, rgba(183,201,168,0.10) 0%, transparent 55%),
+        radial-gradient(ellipse at 80% 15%, rgba(200,184,216,0.10) 0%, transparent 45%);
+      background-attachment: fixed;
+    }
+
+    /* Subtle petal texture overlay */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      background-image:
+        repeating-linear-gradient(
+          0deg,
+          rgba(212,160,176,0.018) 0px,
+          rgba(212,160,176,0.018) 1px,
+          transparent 1px,
+          transparent 44px
+        ),
+        repeating-linear-gradient(
+          90deg,
+          rgba(183,201,168,0.018) 0px,
+          rgba(183,201,168,0.018) 1px,
+          transparent 1px,
+          transparent 44px
+        );
+    }
+
+    /* Floating petal animations */
+    @keyframes petalFloat {
+      0%   { transform: translateY(-20px) rotate(0deg) translateX(0px); opacity: 0; }
+      10%  { opacity: 0.6; }
+      90%  { opacity: 0.4; }
+      100% { transform: translateY(110vh) rotate(360deg) translateX(40px); opacity: 0; }
+    }
+
+    .petals-bg {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      overflow: hidden;
+    }
+
+    .petal {
+      position: absolute;
+      top: -30px;
+      border-radius: 80% 0 80% 0;
+      animation: petalFloat linear infinite;
+      opacity: 0;
+    }
+
+    .petal:nth-child(1)  { left: 8%;  width: 10px; height: 14px; background: rgba(232,190,201,0.5); animation-duration: 12s; animation-delay: 0s; }
+    .petal:nth-child(2)  { left: 18%; width: 8px;  height: 12px; background: rgba(183,201,168,0.4); animation-duration: 14s; animation-delay: 3s; }
+    .petal:nth-child(3)  { left: 30%; width: 12px; height: 16px; background: rgba(200,184,216,0.45); animation-duration: 11s; animation-delay: 6s; }
+    .petal:nth-child(4)  { left: 50%; width: 9px;  height: 13px; background: rgba(212,160,176,0.4); animation-duration: 15s; animation-delay: 1s; }
+    .petal:nth-child(5)  { left: 65%; width: 11px; height: 15px; background: rgba(183,201,168,0.35); animation-duration: 13s; animation-delay: 8s; }
+    .petal:nth-child(6)  { left: 78%; width: 8px;  height: 11px; background: rgba(245,200,168,0.4); animation-duration: 16s; animation-delay: 4s; }
+    .petal:nth-child(7)  { left: 90%; width: 10px; height: 14px; background: rgba(200,184,216,0.5); animation-duration: 10s; animation-delay: 9s; }
+    .petal:nth-child(8)  { left: 42%; width: 7px;  height: 10px; background: rgba(232,190,201,0.35); animation-duration: 18s; animation-delay: 5s; }
+    .petal:nth-child(9)  { left: 23%; width: 13px; height: 17px; background: rgba(212,160,176,0.3); animation-duration: 12s; animation-delay: 11s; }
+    .petal:nth-child(10) { left: 58%; width: 9px;  height: 13px; background: rgba(245,200,168,0.45); animation-duration: 14s; animation-delay: 2s; }
+    .petal:nth-child(11) { left: 72%; width: 11px; height: 15px; background: rgba(183,201,168,0.5); animation-duration: 11s; animation-delay: 7s; }
+    .petal:nth-child(12) { left: 5%;  width: 8px;  height: 12px; background: rgba(200,184,216,0.4); animation-duration: 17s; animation-delay: 13s; }
+
+    /* ── SCROLL REVEAL ── */
+    .reveal { transition: opacity 1s ease, transform 1s ease; }
+    .js-ready .reveal { opacity: 0; transform: translateY(22px); }
+    .js-ready .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      bottom: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 44px;
+      padding: 16px 20px;
+      background: rgba(250, 240, 243, 0.97);
+      border-top: 1px solid rgba(212,160,176,0.25);
+      backdrop-filter: blur(20px);
+    }
+
+    nav a {
+      font-family: var(--font-tenor);
+      font-size: 10px;
+      letter-spacing: 4px;
+      color: var(--rose-deep);
+      text-decoration: none;
+      text-transform: uppercase;
+      transition: color 0.3s, opacity 0.3s;
+      opacity: 0.6;
+      white-space: nowrap;
+    }
+    nav a:hover { color: var(--rose); opacity: 1; }
+
+    /* Mobile Nav */
+    .nav-toggle-btn {
+      display: none;
+      position: fixed;
+      bottom: 22px; right: 22px;
+      z-index: 1100;
+      width: 52px; height: 52px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--rose-deep), var(--rose));
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 4px 24px rgba(212,160,176,0.45);
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.35s, box-shadow 0.3s;
+      font-family: var(--font-script);
+      font-size: 20px;
+      color: var(--white);
+    }
+    .nav-toggle-btn.open { transform: rotate(45deg); }
+
+    .mobile-nav-popup {
+      display: none;
+      position: fixed;
+      bottom: 88px; right: 16px;
+      z-index: 1090;
+      background: rgba(250, 240, 243, 0.98);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(212,160,176,0.3);
+      border-radius: 4px;
+      padding: 8px 0;
+      min-width: 200px;
+      box-shadow: 0 16px 60px rgba(168,104,124,0.2);
+      transform-origin: bottom right;
+      transform: scale(0.88);
+      opacity: 0;
+      transition: transform 0.28s cubic-bezier(.4,0,.2,1), opacity 0.25s;
+      pointer-events: none;
+    }
+    .mobile-nav-popup.open { transform: scale(1); opacity: 1; pointer-events: auto; }
+    .mobile-nav-popup a {
+      display: block;
+      font-family: var(--font-tenor);
+      font-size: 10px;
+      letter-spacing: 4px;
+      color: var(--rose-deep);
+      text-decoration: none;
+      text-transform: uppercase;
+      padding: 14px 28px;
+      border-bottom: 1px solid rgba(212,160,176,0.1);
+      transition: background 0.2s, color 0.2s;
+      opacity: 0.75;
+    }
+    .mobile-nav-popup a:last-child { border-bottom: none; }
+    .mobile-nav-popup a:hover { background: rgba(212,160,176,0.08); color: var(--rose); opacity: 1; }
+
+    .nav-backdrop {
+      display: none;
+      position: fixed; inset: 0;
+      z-index: 1080;
+      background: rgba(107,58,74,0.18);
+      backdrop-filter: blur(3px);
+      opacity: 0;
+      transition: opacity 0.25s;
+      pointer-events: none;
+    }
+    .nav-backdrop.open { opacity: 1; pointer-events: auto; }
+
+    /* ── SHARED ── */
+    .section-wrap {
+      padding: 100px 24px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .s-eyebrow {
+      font-family: var(--font-tenor);
+      font-size: 10px;
+      letter-spacing: 8px;
+      color: var(--rose);
+      text-transform: uppercase;
+      text-align: center;
+      margin-bottom: 12px;
+      opacity: 0.8;
+    }
+
+    .s-script {
+      font-family: var(--font-cg);
+      font-size: clamp(36px, 6vw, 58px);
+      font-style: italic;
+      font-weight: 300;
+      color: var(--dark);
+      text-align: center;
+      line-height: 1.2;
+      letter-spacing: 1px;
+    }
+
+    .rose-bar {
+      width: 120px;
+      height: 1px;
+      background: linear-gradient(to right, transparent, var(--rose), transparent);
+      margin: 24px auto 52px;
+    }
+
+    .ornament-row {
+      display: flex; align-items: center; justify-content: center; gap: 16px;
+      margin: 12px 0;
+    }
+    .ornament-row span { color: var(--rose); font-size: 11px; opacity: 0.7; }
+    .thin-rule {
+      width: 70px; height: 1px;
+      background: linear-gradient(to right, transparent, rgba(212,160,176,0.6), transparent);
+      display: inline-block;
+    }
+
+    /* ── SPRING CORNER SVG ORNAMENTS ── */
+    .hc { position: absolute; width: 80px; height: 80px; pointer-events: none; opacity: 0.5; }
+    .hc.tl { top: 60px; left: 24px; }
+    .hc.tr { top: 60px; right: 24px; transform: scaleX(-1); }
+    .hc.bl { bottom: 100px; left: 24px; transform: scaleY(-1); }
+    .hc.br { bottom: 100px; right: 24px; transform: scale(-1,-1); }
+
+    /* ── HERO ── */
+    #home {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+      padding: 60px 32px 120px;
+      text-align: center;
+      background:
+        radial-gradient(ellipse at 30% 20%, rgba(200,184,216,0.20) 0%, transparent 50%),
+        radial-gradient(ellipse at 70% 80%, rgba(183,201,168,0.18) 0%, transparent 50%),
+        radial-gradient(ellipse at 50% 50%, rgba(242,220,227,0.35) 0%, transparent 70%),
+        var(--blush);
+    }
+
+    #home::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 50% 50%, transparent 55%, rgba(107,58,74,0.04) 100%);
+      pointer-events: none;
+    }
+
+    .hero-ribbon {
+      font-family: var(--font-tenor);
+      font-size: 10px;
+      letter-spacing: 8px;
+      color: var(--rose);
+      text-transform: uppercase;
+      opacity: 0.75;
+      margin-bottom: 4px;
+    }
+
+    .hero-names {
+      font-family: 'Cinzel', serif;
+      font-weight: 300;
+      font-size: clamp(38px, 9vw, 78px);
+      background: linear-gradient(150deg, var(--rose-light) 0%, var(--rose) 45%, var(--rose-deep) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      line-height: 1.15;
+      filter: drop-shadow(0 2px 6px rgba(168,104,124,0.12));
+      margin: 8px 0 4px;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+    }
+
+    .hero-amp {
+      font-family: var(--font-cg);
+      font-size: clamp(22px, 4vw, 36px);
+      font-style: italic;
+      color: var(--sage-deep);
+      opacity: 0.7;
+      display: block;
+      margin: 0;
+    }
+
+    .hero-date-line {
+      font-family: var(--font-cg);
+      font-size: clamp(16px, 3vw, 22px);
+      font-style: italic;
+      color: var(--text-soft);
+      opacity: 0.8;
+      margin-top: 20px;
+      letter-spacing: 0.5px;
+    }
+
+    /* ── DEADLINE NOTICE ── */
+    .deadline-notice {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      margin-top: 28px;
+      padding: 12px 28px;
+      border: 1px solid rgba(212,160,176,0.35);
+      background: rgba(242,220,227,0.45);
+      font-family: var(--font-tenor);
+      font-size: 10px;
+      letter-spacing: 3px;
+      color: var(--rose-deep);
+      text-transform: uppercase;
+    }
+
+    /* Spring bloom decoration */
+    .hero-bloom {
+      position: absolute;
+      pointer-events: none;
+      opacity: 0.18;
+    }
+
+    .hero-bloom.bl { bottom: 80px; left: -20px; width: 220px; transform: rotate(-15deg); }
+    .hero-bloom.br { bottom: 60px; right: -20px; width: 200px; transform: rotate(15deg) scaleX(-1); }
+    .hero-bloom.tl { top: 80px; left: -10px; width: 180px; transform: rotate(-25deg); }
+    .hero-bloom.tr { top: 80px; right: -10px; width: 180px; transform: rotate(25deg) scaleX(-1); }
+
+    /* ── RSVP SECTION ── */
+    #rsvp {
+      background:
+        radial-gradient(ellipse at 20% 50%, rgba(183,201,168,0.12) 0%, transparent 55%),
+        radial-gradient(ellipse at 80% 50%, rgba(200,184,216,0.12) 0%, transparent 55%),
+        radial-gradient(ellipse at 50% 100%, rgba(242,220,227,0.25) 0%, transparent 65%),
+        var(--blush);
+    }
+
+    .rsvp-wrap {
+      max-width: 560px;
+      margin: 0 auto;
+    }
+
+    .rsvp-form {
+      border: 1px solid rgba(212,160,176,0.28);
+      background: rgba(255, 251, 253, 0.92);
+      padding: 52px 44px;
+      position: relative;
+      box-shadow:
+        0 2px 4px rgba(168,104,124,0.04),
+        0 12px 48px rgba(168,104,124,0.10),
+        0 0 0 6px rgba(255,251,253,0.6);
+      backdrop-filter: blur(2px);
+    }
+
+    .rsvp-form::before {
+      content: '';
+      position: absolute;
+      inset: 10px;
+      border: 1px solid rgba(212,160,176,0.14);
+      pointer-events: none;
+    }
+
+    .form-field {
+      margin-bottom: 26px;
+    }
+
+    .form-label {
+      display: block;
+      font-family: var(--font-tenor);
+      font-size: 10px;
+      letter-spacing: 5px;
+      color: var(--rose-deep);
+      text-transform: uppercase;
+      margin-bottom: 10px;
+      opacity: 0.8;
+    }
+
+    .form-input,
+    .form-textarea {
+      width: 100%;
+      padding: 14px 18px;
+      font-family: var(--font-sub);
+      font-size: 17px;
+      font-style: italic;
+      color: var(--text);
+      background: rgba(250, 240, 243, 0.7);
+      border: 1px solid rgba(212,160,176,0.3);
+      outline: none;
+      transition: border-color 0.35s, box-shadow 0.35s, background 0.35s;
+      -webkit-appearance: none;
+      appearance: none;
+      border-radius: 0;
+    }
+
+    .form-input:focus,
+    .form-textarea:focus {
+      border-color: var(--rose);
+      background: rgba(255, 251, 253, 1);
+      box-shadow: 0 0 0 3px rgba(212,160,176,0.14), 0 2px 12px rgba(212,160,176,0.12);
+    }
+
+    .form-input::placeholder,
+    .form-textarea::placeholder {
+      color: rgba(168,104,124,0.35);
+      font-style: italic;
+    }
+
+    .form-textarea { resize: vertical; min-height: 110px; line-height: 1.8; }
+
+    /* ── ATTENDANCE BUTTONS ── */
+    .attendance-btns {
+      display: flex;
+      gap: 14px;
+    }
+
+    .attend-btn {
+      flex: 1;
+      padding: 15px;
+      font-family: var(--font-tenor);
+      font-size: 10px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      border: 1px solid rgba(212,160,176,0.35);
+      background: transparent;
+      color: var(--rose-deep);
+      cursor: pointer;
+      transition: all 0.35s;
+      opacity: 0.65;
+      border-radius: 0;
+    }
+
+    .attend-btn.selected,
+    .attend-btn:hover {
+      background: rgba(242,220,227,0.5);
+      border-color: var(--rose);
+      opacity: 1;
+      box-shadow: 0 2px 12px rgba(212,160,176,0.2);
+    }
+
+    .attend-btn.selected.no-btn {
+      background: rgba(168,104,124,0.08);
+      border-color: var(--rose-deep);
+    }
+
+    /* ── GUEST COUNT ── */
+    .guest-count-wrap {
+      display: flex;
+      align-items: center;
+      border: 1px solid rgba(212,160,176,0.35);
+      background: rgba(250, 240, 243, 0.7);
+      width: fit-content;
+    }
+
+    .gc-btn {
+      width: 46px; height: 46px;
+      border: none;
+      background: transparent;
+      font-family: var(--font-display);
+      font-size: 22px;
+      color: var(--rose-deep);
+      cursor: pointer;
+      transition: background 0.2s;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .gc-btn:hover { background: rgba(242,220,227,0.5); }
+    .gc-btn:disabled { opacity: 0.25; cursor: not-allowed; }
+
+    .gc-display {
+      min-width: 60px;
+      text-align: center;
+      font-family: var(--font-cg);
+      font-size: 22px;
+      font-weight: 400;
+      font-style: italic;
+      color: var(--dark);
+      border-left: 1px solid rgba(212,160,176,0.25);
+      border-right: 1px solid rgba(212,160,176,0.25);
+      padding: 0 14px;
+      line-height: 46px;
+    }
+
+    .gc-max-note {
+      font-family: var(--font-tenor);
+      font-size: 10px;
+      letter-spacing: 3px;
+      color: var(--rose);
+      text-transform: uppercase;
+      margin-top: 10px;
+      opacity: 0.65;
+    }
+
+    /* Guest name rows */
+    .guest-names-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: 4px;
+    }
+
+    .guest-name-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      animation: rowSlideIn 0.35s ease;
+    }
+
+    @keyframes rowSlideIn {
+      from { opacity: 0; transform: translateY(-8px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .guest-row-label {
+      font-family: var(--font-tenor);
+      font-size: 10px;
+      letter-spacing: 3px;
+      color: var(--rose-deep);
+      text-transform: uppercase;
+      white-space: nowrap;
+      min-width: 64px;
+      opacity: 0.75;
+    }
+
+    /* ── HEADCOUNT BAR ── */
+    .headcount-bar {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 14px 20px;
+      background: rgba(242,220,227,0.4);
+      border: 1px solid rgba(212,160,176,0.28);
+      margin-bottom: 28px;
+    }
+
+    .hc-icon { font-size: 16px; color: var(--rose); opacity: 0.8; }
+
+    .hc-text {
+      font-family: var(--font-tenor);
+      font-size: 10px;
+      letter-spacing: 3px;
+      color: var(--rose-deep);
+      text-transform: uppercase;
+      flex: 1;
+    }
+
+    .hc-count {
+      font-family: var(--font-cg);
+      font-size: 20px;
+      font-style: italic;
+      font-weight: 400;
+      color: var(--rose-deep);
+    }
+
+    .hc-bar-track {
+      width: 100%;
+      height: 2px;
+      background: rgba(212,160,176,0.18);
+      margin-top: 7px;
+      overflow: hidden;
+    }
+
+    .hc-bar-fill {
+      height: 100%;
+      background: linear-gradient(to right, var(--rose-deep), var(--rose-light));
+      transition: width 0.6s ease;
+    }
+
+    .hc-full-notice {
+      display: none;
+      text-align: center;
+      padding: 24px;
+      font-family: var(--font-sub);
+      font-style: italic;
+      color: var(--rose-deep);
+      font-size: 16px;
+      border: 1px solid rgba(212,160,176,0.3);
+      background: rgba(242,220,227,0.4);
+      margin-bottom: 26px;
+      line-height: 1.7;
+    }
+
+    /* ── SUBMIT BUTTON ── */
+    .rose-btn {
+      padding: 17px 36px;
+      font-family: var(--font-tenor);
+      font-size: 11px;
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      color: var(--white);
+      background: linear-gradient(135deg, var(--rose-deep) 0%, var(--rose) 60%, var(--rose-light) 100%);
+      border: none;
+      cursor: pointer;
+      transition: all 0.35s;
+      box-shadow: 0 4px 20px rgba(168,104,124,0.3), inset 0 1px 0 rgba(255,255,255,0.15);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .rose-btn::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, transparent 0%, rgba(255,255,255,0.1) 50%, transparent 100%);
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .rose-btn:hover {
+      box-shadow: 0 8px 32px rgba(168,104,124,0.45), inset 0 1px 0 rgba(255,255,255,0.15);
+      transform: translateY(-2px);
+    }
+    .rose-btn:hover::after { opacity: 1; }
+    .rose-btn:disabled {
+      opacity: 0.45;
+      cursor: not-allowed;
+      transform: none;
+      box-shadow: none;
+    }
+
+    .form-submit { width: 100%; margin-top: 10px; }
+
+    /* ── SUCCESS STATE ── */
+    .rsvp-success {
+      display: none;
+      text-align: center;
+      padding: 56px 40px;
+      border: 1px solid rgba(212,160,176,0.28);
+      background: rgba(255, 251, 253, 0.95);
+      position: relative;
+      animation: resultFadeIn 0.7s ease;
+      box-shadow: 0 12px 48px rgba(168,104,124,0.10);
+    }
+
+    @keyframes resultFadeIn {
+      from { opacity: 0; transform: translateY(14px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .rsvp-success::before {
+      content: '';
+      position: absolute;
+      inset: 10px;
+      border: 1px solid rgba(212,160,176,0.13);
+      pointer-events: none;
+    }
+
+    .rsvp-success .success-icon {
+      font-family: var(--font-script);
+      font-size: 80px;
+      background: linear-gradient(135deg, var(--rose-light), var(--rose), var(--rose-deep));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      line-height: 1;
+      margin-bottom: 20px;
+    }
+
+    .rsvp-success h3 {
+      font-family: var(--font-cg);
+      font-size: 30px;
+      font-style: italic;
+      font-weight: 300;
+      color: var(--dark);
+      margin-bottom: 12px;
+      letter-spacing: 0.5px;
+    }
+
+    .rsvp-success p {
+      font-family: var(--font-sub);
+      font-size: 17px;
+      font-style: italic;
+      color: var(--text-soft);
+      opacity: 0.85;
+      line-height: 1.8;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background:
+        linear-gradient(160deg, #7A4A58 0%, #9B6878 60%, #7A4A58 100%);
+      padding: 70px 24px 100px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    footer::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        radial-gradient(circle at 50% 0%, rgba(212,160,176,0.12) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .footer-lockup {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      grid-template-rows: auto auto;
+      gap: 16px 24px;
+      align-items: center;
+      max-width: 600px;
+      margin: 16px auto 10px auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .ornament-line {
+      height: 1px;
+      background-color: rgba(212,160,176,0.35);
+      width: 50px;
+    }
+    .line-left  { justify-self: end; }
+    .line-right { justify-self: start; }
+
+    .center-symbol {
+      color: rgba(212,160,176,0.65);
+      font-family: var(--font-tenor, sans-serif);
+      font-size: 11px;
+      text-align: center;
+      letter-spacing: 0;
+    }
+
+    .name-left,
+    .name-right {
+      font-family: var(--font-tenor, sans-serif);
+      font-size: 11px;
+      letter-spacing: 9px;
+      color: rgba(212,160,176,0.6);
+      text-transform: uppercase;
+    }
+
+    .name-left  { justify-self: end; margin-right: -9px; }
+    .name-right { justify-self: start; }
+
+    .footer-script {
+      font-family: 'Cinzel', serif;
+      font-weight: 300;
+      font-size: clamp(22px, 5vw, 36px);
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      background: linear-gradient(135deg, rgba(232,190,201,0.75), rgba(212,160,176,0.95), rgba(168,104,124,0.75));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      line-height: 1.3;
+      margin-bottom: 8px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .footer-byline {
+      font-family: var(--font-tenor);
+      font-size: 9px;
+      letter-spacing: 4px;
+      color: rgba(212,160,176,0.5);
+      text-transform: uppercase;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ── FLOATING CONTROLS ── */
+    .floating-controls {
+      position: fixed;
+      bottom: 80px;
+      right: 22px;
+      z-index: 1000;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      align-items: flex-end;
+      pointer-events: none;
+    }
+
+    .floating-controls > * { pointer-events: auto; }
+
+    .action-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      background: rgba(250, 240, 243, 0.94);
+      border: 1px solid rgba(212,160,176,0.4);
+      border-radius: 40px;
+      cursor: pointer;
+      backdrop-filter: blur(16px);
+      box-shadow: 0 4px 24px rgba(168,104,124,0.2);
+      transition: all 0.3s;
+      color: var(--rose-deep);
+      text-decoration: none;
+    }
+
+    .action-btn:hover {
+      box-shadow: 0 8px 36px rgba(168,104,124,0.35);
+      transform: translateY(-3px);
+    }
+
+    .top-btn {
+      width: 44px; height: 44px;
+      border-radius: 50%;
+      font-size: 16px;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(20px);
+      transition: all 0.3s;
+    }
+    .top-btn.visible { opacity: 1; pointer-events: auto; transform: translateY(0); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      nav { display: none; }
+      .nav-toggle-btn { display: flex; }
+      .mobile-nav-popup, .nav-backdrop { display: block; }
+      .section-wrap { padding: 70px 18px; }
+      .rsvp-form { padding: 36px 22px; }
+      .floating-controls { bottom: 76px; }
+    }
+
+    @media (max-width: 480px) {
+      .hero-names { font-size: clamp(56px, 17vw, 84px); }
+      .attendance-btns { flex-direction: column; }
+      .rsvp-form { padding: 28px 16px; }
+      .hero-bloom { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Floating petals background -->
+<div class="petals-bg" aria-hidden="true">
+  <div class="petal"></div><div class="petal"></div><div class="petal"></div>
+  <div class="petal"></div><div class="petal"></div><div class="petal"></div>
+  <div class="petal"></div><div class="petal"></div><div class="petal"></div>
+  <div class="petal"></div><div class="petal"></div><div class="petal"></div>
+</div>
+
+<nav>
+  <a href="#home">Home</a>
+  <a href="#rsvp">RSVP</a>
+</nav>
+
+<button class="nav-toggle-btn" id="navToggleBtn" onclick="toggleNav()">✿</button>
+<div class="mobile-nav-popup" id="mobileNavPopup">
+  <a href="#home" onclick="closeNav()">Home</a>
+  <a href="#rsvp" onclick="closeNav()">RSVP</a>
+</div>
+<div class="nav-backdrop" id="navBackdrop" onclick="closeNav()"></div>
+
+<div class="floating-controls">
+  <button class="action-btn top-btn" id="topBtn" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Back to top">↑</button>
+</div>
+
+<section id="home">
+
+  <!-- Spring corner ornaments (botanical SVG) -->
+  <div class="hc tl" aria-hidden="true">
+    <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M6,74 L6,6 L74,6" stroke="#D4A0B0" stroke-width="1.2" opacity="0.5"/>
+      <circle cx="6" cy="6" r="2.5" fill="#D4A0B0" opacity="0.55"/>
+      <!-- small blossom -->
+      <circle cx="18" cy="18" r="4" fill="none" stroke="#D4A0B0" stroke-width="0.8" opacity="0.4"/>
+      <circle cx="18" cy="18" r="1.5" fill="#D4A0B0" opacity="0.3"/>
+      <path d="M14,18 Q18,12 22,18" stroke="#D4A0B0" stroke-width="0.6" fill="none" opacity="0.3"/>
+      <path d="M18,14 Q24,18 18,22" stroke="#D4A0B0" stroke-width="0.6" fill="none" opacity="0.3"/>
+    </svg>
+  </div>
+  <div class="hc tr" aria-hidden="true">
+    <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M6,74 L6,6 L74,6" stroke="#D4A0B0" stroke-width="1.2" opacity="0.5"/>
+      <circle cx="6" cy="6" r="2.5" fill="#D4A0B0" opacity="0.55"/>
+      <circle cx="18" cy="18" r="4" fill="none" stroke="#D4A0B0" stroke-width="0.8" opacity="0.4"/>
+      <circle cx="18" cy="18" r="1.5" fill="#D4A0B0" opacity="0.3"/>
+      <path d="M14,18 Q18,12 22,18" stroke="#D4A0B0" stroke-width="0.6" fill="none" opacity="0.3"/>
+      <path d="M18,14 Q24,18 18,22" stroke="#D4A0B0" stroke-width="0.6" fill="none" opacity="0.3"/>
+    </svg>
+  </div>
+  <div class="hc bl" aria-hidden="true">
+    <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M6,74 L6,6 L74,6" stroke="#D4A0B0" stroke-width="1.2" opacity="0.5"/>
+      <circle cx="6" cy="6" r="2.5" fill="#D4A0B0" opacity="0.55"/>
+      <circle cx="18" cy="18" r="4" fill="none" stroke="#D4A0B0" stroke-width="0.8" opacity="0.4"/>
+      <circle cx="18" cy="18" r="1.5" fill="#D4A0B0" opacity="0.3"/>
+      <path d="M14,18 Q18,12 22,18" stroke="#D4A0B0" stroke-width="0.6" fill="none" opacity="0.3"/>
+      <path d="M18,14 Q24,18 18,22" stroke="#D4A0B0" stroke-width="0.6" fill="none" opacity="0.3"/>
+    </svg>
+  </div>
+  <div class="hc br" aria-hidden="true">
+    <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M6,74 L6,6 L74,6" stroke="#D4A0B0" stroke-width="1.2" opacity="0.5"/>
+      <circle cx="6" cy="6" r="2.5" fill="#D4A0B0" opacity="0.55"/>
+      <circle cx="18" cy="18" r="4" fill="none" stroke="#D4A0B0" stroke-width="0.8" opacity="0.4"/>
+      <circle cx="18" cy="18" r="1.5" fill="#D4A0B0" opacity="0.3"/>
+      <path d="M14,18 Q18,12 22,18" stroke="#D4A0B0" stroke-width="0.6" fill="none" opacity="0.3"/>
+      <path d="M18,14 Q24,18 18,22" stroke="#D4A0B0" stroke-width="0.6" fill="none" opacity="0.3"/>
+    </svg>
+  </div>
+
+  <!-- Botanical bloom SVG decorations -->
+  <div class="hero-bloom bl" aria-hidden="true">
+    <svg viewBox="0 0 220 280" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M110,280 C110,280 80,200 60,160 C40,120 20,100 10,70 C0,40 20,20 40,30 C60,40 70,70 70,70" stroke="#B7C9A8" stroke-width="2" fill="none"/>
+      <path d="M110,280 C110,280 140,200 160,160 C180,120 200,100 210,70 C220,40 200,20 180,30 C160,40 150,70 150,70" stroke="#D4A0B0" stroke-width="1.5" fill="none"/>
+      <ellipse cx="40" cy="90" rx="22" ry="14" fill="#E8BEC9" opacity="0.6" transform="rotate(-30 40 90)"/>
+      <ellipse cx="60" cy="70" rx="20" ry="13" fill="#D4A0B0" opacity="0.5" transform="rotate(-15 60 70)"/>
+      <ellipse cx="160" cy="90" rx="22" ry="14" fill="#C8B8D8" opacity="0.5" transform="rotate(30 160 90)"/>
+      <circle cx="110" cy="140" r="8" fill="#F5C8A8" opacity="0.6"/>
+    </svg>
+  </div>
+
+  <div class="hero-bloom tr" aria-hidden="true">
+    <svg viewBox="0 0 180 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M90,200 C90,200 60,140 40,100 C20,60 10,30 30,15 C50,0 70,20 70,50" stroke="#B7C9A8" stroke-width="1.5" fill="none"/>
+      <ellipse cx="35" cy="60" rx="18" ry="12" fill="#B7C9A8" opacity="0.55" transform="rotate(-20 35 60)"/>
+      <ellipse cx="55" cy="40" rx="16" ry="11" fill="#D4A0B0" opacity="0.45" transform="rotate(-10 55 40)"/>
+      <ellipse cx="140" cy="70" rx="20" ry="13" fill="#C8B8D8" opacity="0.5" transform="rotate(25 140 70)"/>
+      <circle cx="90" cy="120" r="7" fill="#F5E6EC" opacity="0.5"/>
+    </svg>
+  </div>
+
+  <div class="hero-ribbon reveal">The Wedding of</div>
+  <div class="hero-names reveal">Kevin</div>
+  <div class="hero-amp reveal">&amp;</div>
+  <div class="hero-names reveal">Veronica</div>
+
+  <div class="ornament-row reveal" style="margin-top:16px;">
+    <span class="thin-rule"></span>
+    <span>✿</span>
+    <span class="thin-rule"></span>
+  </div>
+
+  <div class="hero-date-line reveal"></div>
+
+  <div class="deadline-notice reveal">
+    <span>✿</span>
+    <span>Kindly RSVP on or before [RSVP Deadline]</span>
+    <span>✿</span>
+  </div>
+</section>
+
+<section id="rsvp" class="section-wrap">
+  <p class="s-eyebrow reveal">Kindly Reply</p>
+  <h2 class="s-script reveal">RSVP</h2>
+  <div class="ornament-row reveal"><span class="thin-rule"></span><span>✿</span><span class="thin-rule"></span></div>
+  <div class="rose-bar"></div>
+
+  <div class="rsvp-wrap">
+
+    <form class="rsvp-form reveal" id="rsvpForm">
+
+      <div class="headcount-bar">
+        <span class="hc-icon">✿</span>
+        <div style="flex:1;">
+          <div style="display:flex;align-items:center;justify-content:space-between;">
+            <span class="hc-text">Seats Reserved</span>
+            <span class="hc-count"><span id="hcUsed">—</span> / <span id="hcTotal">140</span></span>
+          </div>
+          <div class="hc-bar-track"><div class="hc-bar-fill" id="hcBarFill" style="width:0%"></div></div>
+        </div>
+      </div>
+
+      <div class="hc-full-notice" id="hcFullNotice">
+        We're sorry — all seats have been filled. Please contact us for assistance.
+      </div>
+
+      <div class="form-field">
+        <label class="form-label">Your Full Name</label>
+        <input class="form-input" id="rsvpName" name="Name" type="text" placeholder="Your full name…" required />
+      </div>
+
+      <div class="form-field">
+        <label class="form-label">Contact Number</label>
+        <input class="form-input" id="rsvpContact" name="Contact" type="tel" placeholder="09XX XXX XXXX" />
+      </div>
+
+      <div class="form-field">
+        <label class="form-label">Attendance</label>
+        <input type="hidden" name="Attendance" id="attendanceInput" required>
+        <div class="attendance-btns">
+          <button type="button" class="attend-btn" id="yesBtn" onclick="selectAttendance('yes')">✿ Joyfully Accepts</button>
+          <button type="button" class="attend-btn no-btn" id="noBtn" onclick="selectAttendance('no')">Regretfully Declines</button>
+        </div>
+      </div>
+
+      <div class="form-field" id="declineMessageSection" style="display:none;">
+        <label class="form-label">Leave a Message (Optional)</label>
+        <textarea name="DeclineMessage" class="form-textarea" placeholder="We are sorry you can't make it! Leave a short message for the couple…"></textarea>
+      </div>
+
+      <!-- Guest count hidden since MAX is 1 — shown only to be consistent with base template logic -->
+      <div id="guestCountSection" style="display:none;">
+        <div class="form-field">
+          <label class="form-label">Number of Persons</label>
+          <div class="guest-count-wrap">
+            <button type="button" class="gc-btn" id="gcMinus" onclick="changeGuestCount(-1)">−</button>
+            <div class="gc-display" id="gcDisplay">1</div>
+            <button type="button" class="gc-btn" id="gcPlus" onclick="changeGuestCount(1)">+</button>
+          </div>
+          <div class="gc-max-note">Maximum of <span id="gcMaxSpan">1</span> person per RSVP</div>
+        </div>
+
+        <div class="form-field" id="additionalGuestWrap" style="display:none;">
+          <label class="form-label">Additional Guest's Name</label>
+          <div class="guest-names-list" id="guestNamesList"></div>
+        </div>
+      </div>
+
+      <button type="button" class="rose-btn form-submit" id="submitBtn" onclick="submitRSVP()">Send with Love ✿</button>
+
+    </form>
+
+    <div class="rsvp-success" id="rsvpSuccess" style="display:none;">
+      <div class="success-icon">♡</div>
+      <h3>We'll see you there!</h3>
+      <p id="successMsg">Thank you. Your RSVP has been received.<br>We can't wait to celebrate with you.</p>
+      <div style="margin-top:24px;">
+        <div class="ornament-row"><span class="thin-rule"></span><span style="color:var(--rose);">✿</span><span class="thin-rule"></span></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  <div class="footer-script reveal">Kevin & Veronica</div>
+
+  <div class="footer-lockup">
+    <div class="ornament-line line-left"></div>
+    <div class="center-symbol">✿</div>
+    <div class="ornament-line line-right"></div>
+
+    <div class="name-left">Kevin</div>
+    <div class="center-symbol">&</div>
+    <div class="name-right">Veronica</div>
+  </div>
+
+  <div class="footer-byline" style="margin-top:20px;">Made with Love & Crafts</div>
+</footer>
+
+<script>
+// ══════════════════════════════════════════
+// ██████ CONFIGURATION — EDIT THESE ██████
+// ══════════════════════════════════════════
+
+// Your Google Apps Script Web App URL
+const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyoKwDbMx-x0yH2xMEEiqkQkxao-nCkXMtTVKut1cyll1A1SwTmYSgKkVf_z6hbtJ3Z/exec';
+
+// Total guest capacity
+const TOTAL_CAPACITY = 140;
+
+// Max persons per RSVP (1 per RSVP as requested)
+const MAX_PERSONS = 1;
+
+// RSVP Deadline
+const RSVP_DEADLINE = '[RSVP Deadline]';
+
+// Polling interval in ms
+const POLL_INTERVAL = 10000;
+
+// ══════════════════════════════════════════
+// GLOBAL STATE
+// ══════════════════════════════════════════
+let attendanceChoice = null;
+let guestCount = 1;
+let currentUsed = 0;
+
+// ══════════════════════════════════════════
+// GOOGLE SHEETS — FETCH LIVE HEADCOUNT
+// ══════════════════════════════════════════
+async function fetchHeadcount() {
+  try {
+    const res = await fetch(`${SCRIPT_URL}?action=getRsvp`, { method: 'GET' });
+    const data = await res.json();
+    if (data && typeof data.count === 'number') {
+      updateHeadcountUI(data.count);
+    }
+  } catch(e) {
+    console.warn('Could not fetch headcount from sheet.', e);
+  }
+}
+
+function updateHeadcountUI(used) {
+  currentUsed = used;
+  const usedEl     = document.getElementById('hcUsed');
+  const fillEl     = document.getElementById('hcBarFill');
+  const fullNotice = document.getElementById('hcFullNotice');
+  const submitBtn  = document.getElementById('submitBtn');
+
+  usedEl.textContent = used;
+  const pct = Math.min(100, Math.round((used / TOTAL_CAPACITY) * 100));
+  fillEl.style.width = pct + '%';
+
+  const isFull = used >= TOTAL_CAPACITY;
+  fullNotice.style.display = isFull ? 'block' : 'none';
+  submitBtn.disabled = isFull;
+}
+
+// ══════════════════════════════════════════
+// RSVP — ATTENDANCE
+// ══════════════════════════════════════════
+document.getElementById('gcMaxSpan').textContent = MAX_PERSONS;
+document.getElementById('hcTotal').textContent = TOTAL_CAPACITY;
+document.getElementById('gcMinus').disabled = true;
+// Since MAX_PERSONS = 1, plus button always disabled
+document.getElementById('gcPlus').disabled = true;
+
+function selectAttendance(choice) {
+  attendanceChoice = choice;
+  document.getElementById('attendanceInput').value = choice;
+  document.getElementById('yesBtn').classList.toggle('selected', choice === 'yes');
+  document.getElementById('noBtn').classList.toggle('selected', choice === 'no');
+  // For MAX=1, show guest count section but counter is locked at 1
+  document.getElementById('guestCountSection').style.display = choice === 'yes' ? '' : 'none';
+  document.getElementById('declineMessageSection').style.display = choice === 'no' ? '' : 'none';
+  if (choice === 'yes') {
+    guestCount = 1;
+    document.getElementById('gcDisplay').textContent = 1;
+    document.getElementById('gcMinus').disabled = true;
+    document.getElementById('gcPlus').disabled = true;
+    buildAdditionalRows();
+  }
+}
+
+function changeGuestCount(delta) {
+  // Locked at 1 since MAX_PERSONS = 1
+  const remaining = TOTAL_CAPACITY - currentUsed;
+  const newCount = guestCount + delta;
+  if (newCount < 1 || newCount > MAX_PERSONS || newCount > remaining) return;
+  guestCount = newCount;
+  document.getElementById('gcDisplay').textContent = guestCount;
+  document.getElementById('gcMinus').disabled = guestCount <= 1;
+  document.getElementById('gcPlus').disabled = guestCount >= MAX_PERSONS || guestCount >= remaining;
+  buildAdditionalRows();
+}
+
+function buildAdditionalRows() {
+  const wrap = document.getElementById('additionalGuestWrap');
+  const list = document.getElementById('guestNamesList');
+  // No additional guests since max = 1
+  wrap.style.display = 'none';
+  list.innerHTML = '';
+}
+
+// ══════════════════════════════════════════
+// RSVP — SUBMIT
+// ══════════════════════════════════════════
+function escapeHtml(s) { return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+
+async function submitRSVP() {
+  const name    = document.getElementById('rsvpName').value.trim();
+  const contact = document.getElementById('rsvpContact').value.trim();
+  if (!name) return alert('Please enter your name.');
+  if (attendanceChoice === null) return alert('Please indicate if you\'ll be attending.');
+
+  const remaining = TOTAL_CAPACITY - currentUsed;
+  if (attendanceChoice === 'yes' && guestCount > remaining) {
+    return alert(`Sorry, only ${remaining} seat(s) remain.`);
+  }
+
+  const submitBtn  = document.getElementById('submitBtn');
+  const origText   = submitBtn.textContent;
+  submitBtn.textContent = 'Sending… ✿';
+  submitBtn.disabled = true;
+
+  const fd = new FormData();
+  fd.append('action',      'rsvp');
+  fd.append('Name',        name);
+  fd.append('Contact',     contact);
+  fd.append('Attendance',  attendanceChoice);
+  fd.append('TotalGuests', attendanceChoice === 'yes' ? 1 : 0);
+  fd.append('Timestamp',   new Date().toLocaleString('en-PH'));
+
+  if (attendanceChoice === 'yes') {
+    fd.append('Guest1_Name', name);
+  }
+
+  if (attendanceChoice === 'no') {
+    const msgEl = document.querySelector('#declineMessageSection textarea');
+    if (msgEl) fd.append('DeclineMessage', msgEl.value.trim());
+  }
+
+  try {
+    await fetch(SCRIPT_URL, { method: 'POST', body: fd, mode: 'no-cors' });
+    await fetchHeadcount();
+  } catch(err) {
+    console.warn('Sheet sync error (data may still be saved):', err);
+  } finally {
+    if (attendanceChoice === 'yes') {
+      updateHeadcountUI(currentUsed + 1);
+    }
+
+    document.getElementById('rsvpForm').style.display = 'none';
+    const successEl = document.getElementById('rsvpSuccess');
+    successEl.style.display = 'block';
+
+    const msgEl = document.getElementById('successMsg');
+    if (attendanceChoice === 'no') {
+      successEl.querySelector('h3').textContent = 'We will miss you!';
+      msgEl.innerHTML = `Thank you, <strong>${escapeHtml(name)}</strong>.<br>Your RSVP has been received.<br>We're sorry you won't be able to make it.`;
+    } else {
+      successEl.querySelector('h3').textContent = "We'll see you there!";
+      msgEl.innerHTML = `Thank you, <strong>${escapeHtml(name)}</strong>.<br>Your seat has been reserved.<br>We can't wait to celebrate with you!`;
+    }
+    submitBtn.textContent = origText;
+  }
+}
+
+// ── NAV ──
+function toggleNav() {
+  const btn      = document.getElementById('navToggleBtn');
+  const popup    = document.getElementById('mobileNavPopup');
+  const backdrop = document.getElementById('navBackdrop');
+  if (popup.classList.contains('open')) { closeNav(); }
+  else { btn.classList.add('open'); popup.classList.add('open'); backdrop.classList.add('open'); }
+}
+function closeNav() {
+  document.getElementById('navToggleBtn').classList.remove('open');
+  document.getElementById('mobileNavPopup').classList.remove('open');
+  document.getElementById('navBackdrop').classList.remove('open');
+}
+
+// ── SCROLL REVEAL ──
+document.documentElement.classList.add('js-ready');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.12 });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// ── TOP BUTTON ──
+window.addEventListener('scroll', () => {
+  document.getElementById('topBtn').classList.toggle('visible', window.scrollY > 300);
+}, { passive: true });
+
+// ══════════════════════════════════════════
+// BOOT — fetch live headcount on load + poll
+// ══════════════════════════════════════════
+(async function init() {
+  await fetchHeadcount();
+  setInterval(fetchHeadcount, POLL_INTERVAL);
+})();
+</script>
+</body>
+</html>

@@ -307,15 +307,27 @@
     .hero-names {
       font-family: 'Cinzel', serif;
       font-weight: 300;
-      font-size: clamp(38px, 9vw, 78px);
+      font-size: clamp(28px, 9vw, 78px);
       background: linear-gradient(150deg, var(--rose-light) 0%, var(--rose) 45%, var(--rose-deep) 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       line-height: 1.15;
       filter: drop-shadow(0 2px 6px rgba(168,104,124,0.12));
       margin: 8px 0 4px;
-      letter-spacing: 0.25em;
+      letter-spacing: 0.18em;
       text-transform: uppercase;
+      width: 100%;
+      word-break: break-word;
+    }
+
+    @media (max-width: 480px) {
+      .hero-names {
+        font-size: clamp(24px, 10vw, 48px);
+        letter-spacing: 0.10em;
+      }
+      #home {
+        padding: 60px 16px 120px;
+      }
     }
 
     .hero-amp {
